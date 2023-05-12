@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ahadanwar5.github.io/TMDB-The-Movie-Database/",
+  "homepage": "https://movies.withahad.com/",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
