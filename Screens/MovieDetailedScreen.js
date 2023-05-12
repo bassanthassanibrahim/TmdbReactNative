@@ -54,12 +54,12 @@ const [flagAudio, setFlagAudio] = useState(false);
     }
   }
 
-   const insertImage = (poster) => {
+   const insertImage = (poster, customStyle) => {
 
     if (poster!=null)
     {
       return <Image
-                style={styles.image}
+                style={[styles.image, customStyle]}
                 source={{ 
                   uri:
                     'https://image.tmdb.org/t/p/w185/' + poster,
@@ -69,7 +69,7 @@ const [flagAudio, setFlagAudio] = useState(false);
 
     else{
       return <Image
-                style={styles.image}
+                style={[styles.image, customStyle]}
                 source={{ 
                   uri:
                     'https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/red-(2016)-et00046748-21-09-2016-06-28-07.jpg'
@@ -136,7 +136,7 @@ const ref = React.useRef(0);
               <View>
                 <Card style={{ margin: 5, backgroundColor:'#465461' }}>
                   
-                    {insertImage(poster)}
+                  {insertImage(poster, { width: 200, height: 300 })}
 
                   <Text
                     style={{
@@ -288,7 +288,7 @@ const ref = React.useRef(0);
   
                               }}>
                       
-                        <Card style={{ margin: 5, backgroundColor: '#465461'}}>
+                        <Card style={{ margin: 5, backgroundColor: '#465461', padding:'1%'}}>
 
                           <View style={{flexDirection:'row'}}>
                              
@@ -336,6 +336,8 @@ const ref = React.useRef(0);
                                     marginTop:15,
                                     marginLeft: 10,
                                     color:'#ebf3f5',
+                                    marginBottom:10,
+                                    marginRight:10,
                                   }}>
                                   {item.overview}
                                 </Text>
@@ -363,12 +365,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#272e38',
-    padding: '7.5%',
+    padding: '3%',
     paddingTop: '2%',
   },
   image: {
-    height: 300,
-    width: 200,
+    height: 150,
+    width: 100,
     alignSelf: 'center',
     margin: 10,
   },

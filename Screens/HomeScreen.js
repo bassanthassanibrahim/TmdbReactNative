@@ -229,7 +229,7 @@ else
         <Picker
           style={{ fontSize: 16,
           height:40,
-          width:500,
+          width:'50%',
           borderRadius:5,
            color: '#272e38',
            backgroundColor:'#c4dbe0',
@@ -384,8 +384,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#282f39',
-    padding: '7.5%',
-    paddingBottom:15,
+    padding: '3%',
+    paddingBottom:70,
   },
   header: {
     marginTop:20,
@@ -455,8 +455,8 @@ const styles = StyleSheet.create({
     borderRadius:20,
   },
   image: {
-    height: 250,
-    width: 166.65,
+    height: 200,
+    width: 133.32,
     alignSelf: 'center',
     margin: 10,
   },

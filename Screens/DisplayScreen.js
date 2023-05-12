@@ -201,6 +201,8 @@ const [numberStar, setnStar]=useState('');
                             marginTop:15,
                             marginLeft: 10,
                             color:'#ebf3f5',
+                            marginBottom:10,
+                            marginRight:10,
                           }}>
                           {item.overview}
                         </Text>
@@ -244,7 +246,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#272e38',
-    padding: '7.5%',
+    padding: '3%',
     paddingTop: Constants.statusBarHeight,
   },
 
