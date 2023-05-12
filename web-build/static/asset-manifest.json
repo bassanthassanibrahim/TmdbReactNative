@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/static/js/main.48cd07dc.js",
+    "static/js/610.2fa3ed05.js": "/static/js/610.2fa3ed05.js",
+    "static/media/MaterialCommunityIcons.ttf": "/static/media/MaterialCommunityIcons.a7629910d13716b7080c.ttf",
+    "static/media/filmRoll.png": "/static/media/filmRoll.af27303ca9b7e640b1ee.png",
+    "static/media/speaker.png": "/static/media/speaker.834dfe693bda9924a210.png",
+    "favicon.ico": "/favicon.ico",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "main.48cd07dc.js.map": "/static/js/main.48cd07dc.js.map",
+    "610.2fa3ed05.js.map": "/static/js/610.2fa3ed05.js.map"
+  },
+  "entrypoints": [
+    "static/js/610.2fa3ed05.js",
+    "static/js/main.48cd07dc.js"
+  ]
+}
