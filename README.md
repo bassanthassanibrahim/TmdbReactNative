@@ -1,15 +1,42 @@
-# Sample Snack app
+# TMDB: The Movie Database App
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+## Overview
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
+TMDB: The Movie Database App allows users to search for movies, filter by genre, and view details such as descriptions, posters, ratings, and release dates. The app also provides information about upcoming movies in various regions and currently playing movies. With its user-friendly interface and vast database, it's an ideal platform for movie enthusiasts.
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
-
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
-# TMDB-The-Movie-Database
+![movieApp-2048x1367](https://github.com/ahadanwar5/TMDB-The-Movie-Database/assets/119756073/fbd2d733-057c-4441-adc0-9144ebeda69f)
 
 
-<img width="233" alt="Screenshot 2023-05-12 at 5 28 05 PM" src="https://github.com/ahadanwar5/TMDB-The-Movie-Database/assets/119756073/c32a3cd3-e680-4265-8646-2f76180656b2">
+## Features
+
+- **Movie Search**: Search for movies based on title, genre, and other criteria.
+- **Detailed Information**: View detailed information about movies, including descriptions, posters, ratings, and release dates.
+- **Genre Filtering**: Filter movies based on genres to discover new and favorite films.
+- **Upcoming Movies**: Stay informed about upcoming movies in various regions.
+- **Currently Playing Movies**: Explore movies that are currently playing in theaters.
+
+## Technologies Used
+
+- **Frontend**: React Native using Expo CLI for the user interface.
+- **API Integration**: Utilizes TMDB API to fetch and display movie data.
+
+## Getting Started
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/ahadanwar5/TMDB-The-Movie-Database.git
+   cd TMDB-The-Movie-Database
+
+2. **Install Dependencies**
+
+   ```bash
+    npm install
+
+3. **Run the Application**
+
+   ```bash
+    npm start
+
+Feel free to explore and enhance TMDB: The Movie Database App to provide an even more enjoyable experience for movie enthusiasts. Happy coding!
+   
