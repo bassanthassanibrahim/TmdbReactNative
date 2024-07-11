@@ -7,33 +7,7 @@ import StarRating from 'react-native-star-rating-widget';
 
 const HomeScreen = ({navigation}) => {
 
-  const [searchQuery, setSearchQuery] = React.useState(null);
-  const onChangeSearch = query => setSearchQuery(query);
 
-  const onSearchPress = () => {
-     if (searchQuery==null || searchQuery==''  )
-    {
-      alert("Please enter a movie title")
-    }
-else 
-    navigation.navigate('DisplayScreen',{title:searchQuery})
-  };
-
-
-    const onFilterPress = () => {
-      if (selectedGenre!=null)
-      {
-        navigation.navigate('FilterScreen',{genre:selectedGenre})
-      }
-      else{
-        alert("Please select a genre")
-      }
-  };
-
-  const onPress = () => console.log('Button Clicked');
-  const [selectedGenre, setSelectedGenre] = useState();
-  const [selectedGenreName, setSelectedGenreName] = useState();
- const [navigtedGenre, setNavigatedGenre] = React.useState(null);
  const [selectedRegion, setSelectedRegion] = React.useState('US');
  const [selectedRegion2, setSelectedRegion2] = React.useState('US');
 
@@ -61,29 +35,19 @@ else
  }
 
  const [nowPlayingData, setNowPlayingData] = useState([]);
- const [upcomingData, setUpcomingData] = useState([]);
  const [isLoading, setLoading] = useState(true);
  const [numberStar, setnStar]=useState('');
 
  useEffect(() => {
     fetch(
-      'https://api.themoviedb.org/3/movie/now_playing?api_key=fe73570f16e8e63b8a3e86436a277255&language=en-US&page=1&region='+selectedRegion
+      'https://api.themoviedb.org/3/movie/popular?api_key=fe73570f16e8e63b8a3e86436a277255&page=1'
     )
       .then((response) => response.json())
       .then((json) => setNowPlayingData(json))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  }, [selectedRegion]);
+  });
 
-  useEffect(() => {
-    fetch(
-      'https://api.themoviedb.org/3/movie/upcoming?api_key=fe73570f16e8e63b8a3e86436a277255&region='+selectedRegion2
-    )
-      .then((response) => response.json())
-      .then((json) => setUpcomingData(json))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, [selectedRegion2]);
 
 
   return (
@@ -99,57 +63,14 @@ else
 
 
       <Text style={styles.tagLine}>
-         Join us and take a deeper dive {'\n'}into the movies you love ❤️️ ️️ ️️
+         Join us and take a deeper dive {'\n'}into the movies you love  
       </Text>
 
-      <Card style={{marginLeft:5,marginRight:5, backgroundColor:'#465461', marginBottom:30,padding:'2%'}}>
-        <Text style={styles.label}>
-          Search by Title
-        </Text>
-
-        <Searchbar
-          style={{margin:10, backgroundColor:'#c4dbe0'}}
-          placeholder="Search"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-          onIconPress = {onSearchPress}
-          onSubmitEditing={onSearchPress}
-        />
-
-        <TouchableOpacity style={[styles.button, { alignSelf:'flex-end', borderRadius:10}]}onPress={onSearchPress}>
-          <Text style={{color:'white', fontWeight:'bold', margin:3}}>Search</Text>
-        </TouchableOpacity>
-
-      </Card>
 
       <Text style={styles.normalText}>
-          Now Playing
+          Popular Movies
       </Text>
 
-      <View style={{ borderRadius: 4, margin:10}}>
-        <Picker
-          style={{ fontSize: 16,
-          height:40,
-          width:200,
-          borderRadius:5,
-           color: 'black',
-           backgroundColor:'#c4dbe0',
-           textAlign: 'center',
-           fontWeight: 'bold' }}
-          selectedValue={selectedRegion}
-          onValueChange={(itemValue, itemIndex) =>
-          setSelectedRegion(itemValue)
-          }
->
-          <Picker.Item label="United States" value='US' />
-          <Picker.Item label="United Kingdom" value='GB' />
-          <Picker.Item label="Pakistan" value='PK' />
-          <Picker.Item label="India" value='IN' />
-          <Picker.Item label="Germany" value='DE' />
-          <Picker.Item label="Japan" value='JP' />
-          <Picker.Item label="Australia" value='AU' />
-        </Picker>
-        </View>
       
       <ScrollView style={{marginBottom:25}}>
 
@@ -218,160 +139,6 @@ else
           />
 
         </ScrollView>
-
-      <Card style={{marginLeft:5,marginRight:5, backgroundColor:'#465461', marginBottom:30,padding:'2%'}}>
-
-      <Text style={styles.label}>
-          Browse By Genre
-        </Text>
-
-        <View style={{borderRadius: 4, margin:10, alignItems:'center'}}>
-        <Picker
-          style={{ fontSize: 16,
-          height:40,
-          width:'50%',
-          borderRadius:5,
-           color: '#272e38',
-           backgroundColor:'#c4dbe0',
-           textAlign: 'center',
-           fontWeight: 'bold' }}
-          selectedValue={selectedGenre}
-          onValueChange={
-            (itemValue, itemIndex) => setSelectedGenre(itemValue) 
-          }
-        >
-          
-          <Picker.Item label="Select Genre" value='null' />
-          <Picker.Item label="Action" value={28} />
-          <Picker.Item label="Adventure" value={12} />
-          <Picker.Item label="Animation" value={16} />
-          <Picker.Item label="Comedy" value={35} />
-          <Picker.Item label="Crime" value={80} />
-          <Picker.Item label="Drama" value={18} />
-          <Picker.Item label="History" value={12} />
-          <Picker.Item label="Documentary" value={99} />
-          <Picker.Item label="Family" value={10751} />
-          <Picker.Item label="Fantasy" value={14} />
-          <Picker.Item label="History" value={36} />
-          <Picker.Item label="Horror" value={27} />
-          <Picker.Item label="Music" value={10402} />
-          <Picker.Item label="Mystery" value={9648} />
-          <Picker.Item label="Romance" value={10749} />
-          <Picker.Item label="Science Fiction" value={878} />    
-          <Picker.Item label="TV Movie" value={10770} />
-          <Picker.Item label="Thriller" value={53} />
-          <Picker.Item label="War" value={10752} />
-          <Picker.Item label="Westren" value={37} />
-        </Picker>
-
-        </View>
-        
-        <View>
-          <TouchableOpacity style={styles.button} onPress={onFilterPress}>
-                  <Text style={{color:'white', fontWeight:'bold', margin:3}}>Filter</Text>
-                </TouchableOpacity>
-        </View>
-
-
-      </Card>
-
-        <Text style={styles.normalText}>
-          Upcoming Titles
-        </Text>
-
-        <View style={{borderRadius: 4, margin:10}}>
-        <Picker
-          style={{ fontSize: 16,
-          height:40,
-          width:200,
-          borderRadius:5,
-           color: 'black',
-           backgroundColor:'#c4dbe0',
-           textAlign: 'center',
-           fontWeight: 'bold' }}
-          selectedValue={selectedRegion2}
-          onValueChange={(itemValue, itemIndex) =>
-          setSelectedRegion2(itemValue)
-          }
->
-          <Picker.Item label="India" value='IN' />
-          <Picker.Item label="United States" value='US' />
-          <Picker.Item label="United Kingdom" value='GB' />
-          <Picker.Item label="Pakistan" value='PK' />
-          <Picker.Item label="Germany" value='DE' />
-          <Picker.Item label="Japan" value='JP' />
-          <Picker.Item label="Australia" value='AU' />
-        </Picker>
-        </View>
-
-        <ScrollView>
-
-      <FlatList
-            horizontal={true}
-            data={upcomingData.results}
-            keyExtractor={({ id }, index) => id}
-            renderItem={({ item }) => (
-
-              <TouchableOpacity
-                      onPress={() => {
-                      navigation.navigate('MovieScreen',{id:item.id,poster:item.poster_path, detail:item.overview, title:item.title, realse:item.release_date, rating:item.vote_average});  
-                      }}>
-              
-                <Card style={{ margin: 5, backgroundColor: '#465461' }}>
-
-                  <View>
-
-                  {insertImage(item.poster_path)}
-
-                    <View style={{flexDirection:'column', flex:1}}>
-
-                        <Text
-                          style={{
-                            marginTop:10,
-                            marginBottom: 10,
-                            fontWeight: 'bold',
-                            textAlign: 'center',
-                            marginLeft: 10,
-                            marginRight: 10,
-                            flexWrap:'wrap',
-                            color:'#ebf3f5',
-                          }}
-                          adjustsFontSizeToFit={true}
-                          >
-                          {item.original_title}
-                        </Text>
-
-                        <Text
-                          style={{
-                            marginTop:10,
-                            marginBottom: 10,
-                            fontWeight: 'bold',
-                            textAlign: 'center',
-                            marginLeft: 10,
-                            marginRight: 10,
-                            flexWrap:'wrap',
-                            color:'#ebf3f5',
-                          }}
-                          adjustsFontSizeToFit={true}
-                          >
-                          Release Date: {item.release_date}
-                        </Text>
-
-
-
-                    </View>
-
-                  </View>  
-
-                </Card>
-              </TouchableOpacity>
-              
-            )}
-          />
-
-        </ScrollView>
-
-      
 
     </View>
     </ScrollView>
